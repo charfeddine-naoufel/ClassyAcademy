@@ -78,6 +78,10 @@ use App\Http\Controllers\pages\MiscError;
 use App\Http\Controllers\pages\MiscUnderMaintenance;
 use App\Http\Controllers\pages\MiscComingSoon;
 use App\Http\Controllers\pages\MiscNotAuthorized;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\authentications\LoginBasic;
 use App\Http\Controllers\authentications\LoginCover;
 use App\Http\Controllers\authentications\RegisterBasic;
@@ -250,9 +254,10 @@ Route::get('/pages/misc-comingsoon', [MiscComingSoon::class, 'index'])->name('pa
 Route::get('/pages/misc-not-authorized', [MiscNotAuthorized::class, 'index'])->name('pages-misc-not-authorized');
 
 // authentication
-Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
+// Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
 Route::get('/auth/login-cover', [LoginCover::class, 'index'])->name('auth-login-cover');
-Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
+Route::post('/auth/login-cover', [LoginCover::class, 'login'])->name('auth-login');
+// Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
 Route::get('/auth/register-cover', [RegisterCover::class, 'index'])->name('auth-register-cover');
 Route::get('/auth/register-multisteps', [RegisterMultiSteps::class, 'index'])->name('auth-register-multisteps');
 Route::get('/auth/verify-email-basic', [VerifyEmailBasic::class, 'index'])->name('auth-verify-email-basic');
@@ -358,3 +363,24 @@ Route::get('/maps/leaflet', [Leaflet::class, 'index'])->name('maps-leaflet');
 // laravel example
 Route::get('/laravel/user-management', [UserManagement::class, 'UserManagement'])->name('laravel-example-user-management');
 Route::resource('/user-list', UserManagement::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// middleware routes
+// Admin routes
+Route::middleware('admin')->prefix('admin')->group(function () {
+  Route::get('/', [AdminController::class, 'index'])->name('admin-dash');
+
+});
+// Student routes
+Route::middleware('student')->prefix('student')->group(function () {
+  Route::get('/', [StudentController::class, 'index'])->name('student-dash');
+
+});
+// Teacher routes
+Route::middleware('teacher')->prefix('teacher')->group(function () {
+  Route::get('/', [TeacherController::class, 'index'])->name('teacher-dash');
+
+});

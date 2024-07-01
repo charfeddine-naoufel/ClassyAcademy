@@ -52,10 +52,11 @@ $customizerHidden = 'customizer-hide';
         <h4 class="mb-2">Welcome to {{config('variables.templateName')}}! 👋</h4>
         <p class="mb-4">Please sign-in to your account and start the adventure</p>
 
-        <form id="formAuthentication" class="mb-3" action="{{url('/')}}" method="GET">
+        <form id="formAuthentication" class="mb-3" method="POST" action="{{ route('auth-login') }}">
+        @csrf
           <div class="mb-3">
-            <label for="email" class="form-label">Email or Username</label>
-            <input type="text" class="form-control" id="email" name="email-username" placeholder="Enter your email or username" autofocus>
+            <label for="email" class="form-label">Email </label>
+            <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Enter your email " >
           </div>
           <div class="mb-3 form-password-toggle">
             <div class="d-flex justify-content-between">
@@ -77,9 +78,9 @@ $customizerHidden = 'customizer-hide';
               </label>
             </div>
           </div>
-          <button class="btn btn-primary d-grid w-100">
-            Sign in
-          </button>
+          <input type="submit" class="btn btn-primary d-grid w-100" value="Sign in">
+
+
         </form>
 
         <p class="text-center">

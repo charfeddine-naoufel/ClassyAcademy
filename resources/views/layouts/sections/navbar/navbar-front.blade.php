@@ -15,8 +15,8 @@
         </button>
         <!-- Mobile menu toggle: End-->
         <a href="{{url('front-pages/landing')}}" class="app-brand-link">
-          <span class="app-brand-logo demo">@include('_partials.macros',["width"=>25,"withbg"=>'var(--bs-primary)'])</span>
-          <span class="app-brand-text demo menu-text fw-bold ms-2 ps-1">{{config('variables.templateName')}}</span>
+          <span class="app-brand-logo demo"><img src="{{asset('assets/img/front-pages/landing-page/logoca.png')}}" style="width:50px"alt=""></span>
+          <span class="app-brand-text  menu-text fw-bold ms-2 ps-1">Classy Academy</span>
         </a>
       </div>
       <!-- Menu logo wrapper: End -->
@@ -27,23 +27,23 @@
         </button>
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link fw-medium" aria-current="page" href="{{url('front-pages/landing')}}#landingHero">Home</a>
+            <a class="nav-link fw-medium" aria-current="page" href="{{url('front-pages/landing')}}#landingHero">الاستقبال</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-medium" href="{{url('front-pages/landing')}}#landingFeatures">Features</a>
+            <a class="nav-link fw-medium" href="{{url('front-pages/landing')}}#landingFeatures">المستويات</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-medium" href="{{url('front-pages/landing')}}#landingTeam">Team</a>
+            <a class="nav-link fw-medium" href="{{url('front-pages/landing')}}#landingTeam">المواد</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-medium" href="{{url('front-pages/landing')}}#landingFAQ">FAQ</a>
+            <a class="nav-link fw-medium" href="{{url('front-pages/landing')}}#landingFAQ">الاساتذة</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fw-medium" href="{{url('front-pages/landing')}}#landingContact">Contact us</a>
+            <a class="nav-link fw-medium" href="{{url('front-pages/landing')}}#landingContact">اتصل بنا</a>
           </li>
           <li class="nav-item mega-dropdown {{ $activeClass }}">
             <a href="javascript:void(0);" class="nav-link dropdown-toggle navbar-ex-14-mega-dropdown mega-dropdown fw-medium" aria-expanded="false" data-bs-toggle="mega-dropdown" data-trigger="hover">
-              <span>Pages</span>
+              <span>متفرقات</span>
             </a>
             <div class="dropdown-menu p-4">
               <div class="row gy-4">
@@ -52,32 +52,32 @@
                     <div class="avatar avatar-sm flex-shrink-0 me-2">
                       <span class="avatar-initial rounded bg-label-primary"><i class='bx bx-grid-alt'></i></span>
                     </div>
-                    <span class="ps-1">Other</span>
+                    <span class="ps-1">متفرقات</span>
                   </div>
                   <!-- add page slug in $activeRoutes array, defined Beginning of the page to add active class to the nav item -->
                   <ul class="nav flex-column">
                     <li class="nav-item {{ $currentRouteName === 'front-pages-pricing' ? 'active' : '' }}">
                       <a class="nav-link mega-dropdown-link" href="{{ url('front-pages/pricing') }}">
                         <i class='bx bx-radio-circle me-2'></i>
-                        <span>Pricing</span>
+                        <span>اسعارنا</span>
                       </a>
                     </li>
                     <li class="nav-item {{ $currentRouteName === 'front-pages-payment' ? 'active' : '' }}">
                       <a class="nav-link mega-dropdown-link" href="{{ url('front-pages/payment') }}">
                         <i class='bx bx-radio-circle me-2'></i>
-                        <span>Payment</span>
+                        <span>طرق الدفع</span>
                       </a>
                     </li>
                     <li class="nav-item {{ $currentRouteName === 'front-pages-checkout' ? 'active' : '' }}">
                       <a class="nav-link mega-dropdown-link" href="{{ url('front-pages/checkout') }}">
                         <i class='bx bx-radio-circle me-2'></i>
-                        <span>Checkout</span>
+                        <span>اين نحن</span>
                       </a>
                     </li>
                     <li class="nav-item {{ $currentRouteName === 'front-pages-help-center' ? 'active' : '' }}">
                       <a class="nav-link mega-dropdown-link" href="{{ url('front-pages/help-center') }}">
                         <i class='bx bx-radio-circle me-2'></i>
-                        <span>Help Center</span>
+                        <span>مساعدة</span>
                       </a>
                     </li>
                   </ul>
@@ -212,9 +212,9 @@
               </div>
             </div>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link fw-medium" href="{{url('/')}}" target="_blank">Admin</a>
-          </li>
+          </li> -->
         </ul>
       </div>
       <div class="landing-menu-overlay d-lg-none"></div>
@@ -250,7 +250,7 @@
 
         <!-- navbar button: Start -->
         <li>
-          <a href="{{url('/auth/login-cover')}}" class="btn btn-primary" target="_blank"><span class="tf-icons bx bx-user me-md-1"></span><span class="d-none d-md-block">Login/Register</span></a>
+          <a href="{{url('/auth/login-cover')}}" class="btn btn-primary" ><span class="tf-icons bx bx-user me-md-1"></span><span class="d-none d-md-block">الدخول/التسجيل</span></a>
         </li>
         <!-- navbar button: End -->
       </ul>
